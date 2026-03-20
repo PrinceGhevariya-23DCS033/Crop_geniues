@@ -133,7 +133,7 @@ export default function LandingPage() {
           >
             <Zap className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-300 tracking-wide">
-              ISRO HACKATHON 2026 — AI FOR AGRICULTURE
+              AI FOR AGRICULTURE
             </span>
           </motion.div>
 

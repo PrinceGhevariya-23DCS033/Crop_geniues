@@ -122,7 +122,7 @@ Crop Geniues is organized as a unified workspace with these main parts:
 - `backend/routes/history.js`
   - Auth-protected history CRUD + stats
 - `backend/routes/notifications.js`
-  - Auth-protected notifications list/read/delete
+  - Auth-protected notifications list/read/deletei dont to tell to give th estrcuture i want the givepresentation of the project and pogress foucs on model which feture to pridct what is priidct and what model solve and it si pogress
 - `backend/routes/agriNews.js`
   - RSS aggregation with fallback articles
 
