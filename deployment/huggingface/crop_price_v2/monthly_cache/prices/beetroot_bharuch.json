@@ -1,0 +1,11 @@
+{
+  "commodity": "Beetroot",
+  "district": "bharuch",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:00.872104",
+  "monthly_mean_price": 2171.031746031746,
+  "days_traded": 21,
+  "data_source": "CSV",
+  "last_date": "2020-11-01"
+}

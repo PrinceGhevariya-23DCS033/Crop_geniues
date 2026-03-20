@@ -1,0 +1,11 @@
+{
+  "commodity": "Tinda",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.974575",
+  "monthly_mean_price": 908.6284722222223,
+  "days_traded": 24,
+  "data_source": "CSV",
+  "last_date": "2009-12-01"
+}

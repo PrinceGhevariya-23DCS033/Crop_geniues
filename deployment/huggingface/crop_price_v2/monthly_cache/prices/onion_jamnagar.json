@@ -1,0 +1,11 @@
+{
+  "commodity": "Onion",
+  "district": "jamnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.933453",
+  "monthly_mean_price": 1205.8940343915344,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

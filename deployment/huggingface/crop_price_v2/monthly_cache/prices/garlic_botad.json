@@ -1,0 +1,11 @@
+{
+  "commodity": "Garlic",
+  "district": "botad",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.635914",
+  "monthly_mean_price": 2155.5389826839823,
+  "days_traded": 25,
+  "data_source": "CSV",
+  "last_date": "2011-04-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Methi Seeds",
+  "district": "bhavnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.955658",
+  "monthly_mean_price": 5003.281547619048,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2025-11-01"
+}

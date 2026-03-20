@@ -1,0 +1,11 @@
+{
+  "commodity": "Papaya",
+  "district": "ahmadabad",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.214308",
+  "monthly_mean_price": 1917.2737355237355,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2019-12-01"
+}

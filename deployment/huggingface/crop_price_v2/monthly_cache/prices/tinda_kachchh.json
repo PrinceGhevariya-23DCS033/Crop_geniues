@@ -1,0 +1,11 @@
+{
+  "commodity": "Tinda",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.951032",
+  "monthly_mean_price": 1088.6363636363637,
+  "days_traded": 11,
+  "data_source": "CSV",
+  "last_date": "2011-12-01"
+}

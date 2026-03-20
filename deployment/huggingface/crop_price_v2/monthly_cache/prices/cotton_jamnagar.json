@@ -1,0 +1,11 @@
+{
+  "commodity": "Cotton",
+  "district": "jamnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.325196",
+  "monthly_mean_price": 7105.56167520381,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

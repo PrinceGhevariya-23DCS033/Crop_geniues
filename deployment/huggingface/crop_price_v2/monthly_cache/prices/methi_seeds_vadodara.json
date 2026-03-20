@@ -1,0 +1,11 @@
+{
+  "commodity": "Methi Seeds",
+  "district": "vadodara",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:04.197281",
+  "monthly_mean_price": 5015.555555555556,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2024-10-01"
+}

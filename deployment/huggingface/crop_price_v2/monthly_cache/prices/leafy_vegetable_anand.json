@@ -1,0 +1,11 @@
+{
+  "commodity": "Leafy Vegetable",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.524266",
+  "monthly_mean_price": 431.8437250797448,
+  "days_traded": 8,
+  "data_source": "CSV",
+  "last_date": "2010-05-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Tomato",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:07.186387",
+  "monthly_mean_price": 1218.0584947278576,
+  "days_traded": 27,
+  "data_source": "CSV",
+  "last_date": "2015-06-01"
+}

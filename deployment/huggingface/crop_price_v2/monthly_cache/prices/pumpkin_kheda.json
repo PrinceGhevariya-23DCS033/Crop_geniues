@@ -1,0 +1,11 @@
+{
+  "commodity": "Pumpkin",
+  "district": "kheda",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.489220",
+  "monthly_mean_price": 392.3543956043956,
+  "days_traded": 13,
+  "data_source": "CSV",
+  "last_date": "2018-12-01"
+}

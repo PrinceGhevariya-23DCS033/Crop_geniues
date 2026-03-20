@@ -1,0 +1,11 @@
+{
+  "commodity": "Cabbage",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.356295",
+  "monthly_mean_price": 1028.0859728506787,
+  "days_traded": 13,
+  "data_source": "CSV",
+  "last_date": "2015-03-01"
+}

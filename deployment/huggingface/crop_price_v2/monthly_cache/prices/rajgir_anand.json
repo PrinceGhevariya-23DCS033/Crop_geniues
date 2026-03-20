@@ -1,0 +1,11 @@
+{
+  "commodity": "Rajgir",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.632960",
+  "monthly_mean_price": 2967.572300200605,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2021-10-01"
+}

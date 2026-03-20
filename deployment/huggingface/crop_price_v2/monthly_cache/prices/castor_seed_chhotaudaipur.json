@@ -1,0 +1,11 @@
+{
+  "commodity": "Castor Seed",
+  "district": "chhotaudaipur",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.749110",
+  "monthly_mean_price": 3323.75,
+  "days_traded": 4,
+  "data_source": "CSV",
+  "last_date": "2024-08-01"
+}

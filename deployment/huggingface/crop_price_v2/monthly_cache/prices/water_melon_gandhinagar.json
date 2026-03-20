@@ -1,0 +1,11 @@
+{
+  "commodity": "Water Melon",
+  "district": "gandhinagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:07.308662",
+  "monthly_mean_price": 868.639455782313,
+  "days_traded": 21,
+  "data_source": "CSV",
+  "last_date": "2025-05-01"
+}

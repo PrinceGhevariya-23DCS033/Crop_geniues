@@ -1,0 +1,11 @@
+{
+  "commodity": "Banana",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.829916",
+  "monthly_mean_price": 530.9375,
+  "days_traded": 24,
+  "data_source": "CSV",
+  "last_date": "2013-08-01"
+}

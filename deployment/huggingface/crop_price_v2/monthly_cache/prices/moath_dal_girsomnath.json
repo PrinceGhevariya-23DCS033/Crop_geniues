@@ -1,0 +1,11 @@
+{
+  "commodity": "Moath Dal",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:04.383972",
+  "monthly_mean_price": 3365.042091836735,
+  "days_traded": 28,
+  "data_source": "CSV",
+  "last_date": "2016-03-01"
+}

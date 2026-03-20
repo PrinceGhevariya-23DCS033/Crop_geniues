@@ -1,0 +1,11 @@
+{
+  "commodity": "Onion",
+  "district": "gandhinagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.915920",
+  "monthly_mean_price": 673.5527777777777,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2014-11-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Groundnut",
+  "district": "navsari",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.062146",
+  "monthly_mean_price": 2096.1574074074074,
+  "days_traded": 6,
+  "data_source": "CSV",
+  "last_date": "2007-03-01"
+}

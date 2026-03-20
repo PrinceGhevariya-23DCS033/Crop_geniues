@@ -1,0 +1,11 @@
+{
+  "commodity": "Cauliflower",
+  "district": "surat",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.027933",
+  "monthly_mean_price": 2517.681320993821,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Guava",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.495671",
+  "monthly_mean_price": 3351.9166666666665,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-11-01"
+}

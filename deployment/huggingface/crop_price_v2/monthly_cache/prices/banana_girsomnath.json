@@ -1,0 +1,11 @@
+{
+  "commodity": "Banana",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.879705",
+  "monthly_mean_price": 636.5799665533411,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2010-01-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Mustard",
+  "district": "narmada",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.570010",
+  "monthly_mean_price": 3690.0,
+  "days_traded": 1,
+  "data_source": "CSV",
+  "last_date": "2012-09-01"
+}

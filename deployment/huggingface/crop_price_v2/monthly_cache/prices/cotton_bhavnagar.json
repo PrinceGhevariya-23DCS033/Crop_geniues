@@ -1,0 +1,11 @@
+{
+  "commodity": "Cotton",
+  "district": "bhavnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.271151",
+  "monthly_mean_price": 6565.461064840957,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

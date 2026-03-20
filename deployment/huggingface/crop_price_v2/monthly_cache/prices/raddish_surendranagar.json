@@ -1,0 +1,11 @@
+{
+  "commodity": "Raddish",
+  "district": "surendranagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.602490",
+  "monthly_mean_price": 1439.0069444444446,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-01-01"
+}

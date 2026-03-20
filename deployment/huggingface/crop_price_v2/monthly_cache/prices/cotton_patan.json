@@ -1,0 +1,11 @@
+{
+  "commodity": "Cotton",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.377508",
+  "monthly_mean_price": 7135.97152048731,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

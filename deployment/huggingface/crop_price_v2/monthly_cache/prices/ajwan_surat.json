@@ -1,0 +1,11 @@
+{
+  "commodity": "Ajwan",
+  "district": "surat",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.610837",
+  "monthly_mean_price": 5562.25,
+  "days_traded": 10,
+  "data_source": "CSV",
+  "last_date": "2025-04-01"
+}

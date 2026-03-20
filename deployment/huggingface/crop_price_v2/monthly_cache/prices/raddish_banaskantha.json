@@ -1,0 +1,11 @@
+{
+  "commodity": "Raddish",
+  "district": "banaskantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.545322",
+  "monthly_mean_price": 317.76960784313724,
+  "days_traded": 17,
+  "data_source": "CSV",
+  "last_date": "2013-11-01"
+}

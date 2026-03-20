@@ -1,0 +1,11 @@
+{
+  "commodity": "Castor Seed",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.850049",
+  "monthly_mean_price": 5935.7110092672665,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

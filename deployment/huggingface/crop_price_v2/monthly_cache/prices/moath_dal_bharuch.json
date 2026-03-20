@@ -1,0 +1,11 @@
+{
+  "commodity": "Moath Dal",
+  "district": "bharuch",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:04.314888",
+  "monthly_mean_price": 3658.333333333333,
+  "days_traded": 4,
+  "data_source": "CSV",
+  "last_date": "2010-11-01"
+}

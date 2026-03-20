@@ -1,0 +1,11 @@
+{
+  "commodity": "Pomegranate",
+  "district": "vadodara",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.425200",
+  "monthly_mean_price": 5981.666666666667,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2019-09-01"
+}

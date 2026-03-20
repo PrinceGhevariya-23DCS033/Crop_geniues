@@ -1,0 +1,11 @@
+{
+  "commodity": "Guar",
+  "district": "morbi",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.362473",
+  "monthly_mean_price": 6344.606220573963,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

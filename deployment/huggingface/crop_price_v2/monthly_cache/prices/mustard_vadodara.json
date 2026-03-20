@@ -1,0 +1,11 @@
+{
+  "commodity": "Mustard",
+  "district": "vadodara",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.705476",
+  "monthly_mean_price": 2799.785714285714,
+  "days_traded": 2,
+  "data_source": "CSV",
+  "last_date": "2013-06-01"
+}

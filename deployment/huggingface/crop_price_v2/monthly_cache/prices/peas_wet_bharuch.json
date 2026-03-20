@@ -1,0 +1,11 @@
+{
+  "commodity": "Peas Wet",
+  "district": "bharuch",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.305944",
+  "monthly_mean_price": 3471.9636844636843,
+  "days_traded": 9,
+  "data_source": "CSV",
+  "last_date": "2016-02-01"
+}

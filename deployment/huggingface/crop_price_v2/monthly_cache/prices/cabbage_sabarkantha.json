@@ -1,0 +1,11 @@
+{
+  "commodity": "Cabbage",
+  "district": "sabarkantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.405068",
+  "monthly_mean_price": 622.2662026111717,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2014-12-01"
+}

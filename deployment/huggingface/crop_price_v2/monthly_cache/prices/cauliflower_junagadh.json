@@ -1,0 +1,11 @@
+{
+  "commodity": "Cauliflower",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.971130",
+  "monthly_mean_price": 1415.5555555555554,
+  "days_traded": 6,
+  "data_source": "CSV",
+  "last_date": "2015-03-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Papaya",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.217508",
+  "monthly_mean_price": 558.8888888888888,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2012-01-01"
+}

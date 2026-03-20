@@ -1,0 +1,11 @@
+{
+  "commodity": "Maize",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.618731",
+  "monthly_mean_price": 1737.5,
+  "days_traded": 4,
+  "data_source": "CSV",
+  "last_date": "2025-05-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Rajgir",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.692655",
+  "monthly_mean_price": 3007.7487798149564,
+  "days_traded": 17,
+  "data_source": "CSV",
+  "last_date": "2009-11-01"
+}

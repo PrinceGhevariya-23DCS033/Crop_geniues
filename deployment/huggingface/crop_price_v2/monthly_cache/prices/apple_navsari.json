@@ -1,0 +1,11 @@
+{
+  "commodity": "Apple",
+  "district": "navsari",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.763557",
+  "monthly_mean_price": 9950.973318348319,
+  "days_traded": 10,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Moath Dal",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:04.512887",
+  "monthly_mean_price": 3693.755583387201,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2023-12-01"
+}

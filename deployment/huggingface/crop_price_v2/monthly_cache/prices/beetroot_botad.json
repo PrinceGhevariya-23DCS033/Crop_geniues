@@ -1,0 +1,11 @@
+{
+  "commodity": "Beetroot",
+  "district": "botad",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:00.881451",
+  "monthly_mean_price": 670.9090909090909,
+  "days_traded": 11,
+  "data_source": "CSV",
+  "last_date": "2008-04-01"
+}

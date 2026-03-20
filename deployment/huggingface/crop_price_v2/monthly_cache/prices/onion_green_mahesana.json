@@ -1,0 +1,11 @@
+{
+  "commodity": "Onion Green",
+  "district": "mahesana",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.094404",
+  "monthly_mean_price": 825.0,
+  "days_traded": 2,
+  "data_source": "CSV",
+  "last_date": "2025-09-01"
+}

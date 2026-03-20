@@ -1,0 +1,11 @@
+{
+  "commodity": "Chili Red",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.088425",
+  "monthly_mean_price": 5523.179456466381,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2025-06-01"
+}

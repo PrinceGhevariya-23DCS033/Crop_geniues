@@ -1,0 +1,11 @@
+{
+  "commodity": "Tinda",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.946226",
+  "monthly_mean_price": 755.4696969696969,
+  "days_traded": 11,
+  "data_source": "CSV",
+  "last_date": "2010-12-01"
+}

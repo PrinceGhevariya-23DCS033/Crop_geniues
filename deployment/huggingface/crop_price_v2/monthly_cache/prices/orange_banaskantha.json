@@ -1,0 +1,11 @@
+{
+  "commodity": "Orange",
+  "district": "banaskantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.151846",
+  "monthly_mean_price": 6370.916803415023,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-01-01"
+}

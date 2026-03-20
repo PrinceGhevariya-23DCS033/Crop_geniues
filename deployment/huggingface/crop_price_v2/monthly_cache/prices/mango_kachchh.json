@@ -1,0 +1,11 @@
+{
+  "commodity": "Mango",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.818922",
+  "monthly_mean_price": 6042.307692307692,
+  "days_traded": 26,
+  "data_source": "CSV",
+  "last_date": "2025-11-01"
+}

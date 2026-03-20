@@ -1,0 +1,11 @@
+{
+  "commodity": "Sweet Potato",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.814102",
+  "monthly_mean_price": 602.9583333333334,
+  "days_traded": 15,
+  "data_source": "CSV",
+  "last_date": "2025-02-01"
+}

@@ -1,0 +1,10 @@
+{
+  "district": "surat",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:07.588764",
+  "monthly_rain_sum": 3.2,
+  "monthly_rain_mean": 0.1142857142857143,
+  "source": "Default",
+  "metadata": "Historical average for season"
+}

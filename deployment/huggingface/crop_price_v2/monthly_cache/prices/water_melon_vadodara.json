@@ -1,0 +1,11 @@
+{
+  "commodity": "Water Melon",
+  "district": "vadodara",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:07.359703",
+  "monthly_mean_price": 2991.984126984127,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2019-11-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Raddish",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.538575",
+  "monthly_mean_price": 408.3333333333333,
+  "days_traded": 3,
+  "data_source": "CSV",
+  "last_date": "2013-09-01"
+}

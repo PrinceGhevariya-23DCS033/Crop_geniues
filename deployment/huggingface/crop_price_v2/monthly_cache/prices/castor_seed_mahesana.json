@@ -1,0 +1,11 @@
+{
+  "commodity": "Castor Seed",
+  "district": "mahesana",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.802628",
+  "monthly_mean_price": 6290.509239063033,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

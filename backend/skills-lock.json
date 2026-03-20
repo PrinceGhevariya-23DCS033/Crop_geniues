@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "backend-dev-guidelines": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "94a613d32d0036dbec31600c50cea8163d7101d86b394b1fd567aca0aa050b87"
+    }
+  }
+}

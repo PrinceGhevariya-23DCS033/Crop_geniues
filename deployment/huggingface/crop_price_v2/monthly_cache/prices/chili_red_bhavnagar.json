@@ -1,0 +1,11 @@
+{
+  "commodity": "Chili Red",
+  "district": "bhavnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.062739",
+  "monthly_mean_price": 1912.5,
+  "days_traded": 2,
+  "data_source": "CSV",
+  "last_date": "2008-04-01"
+}

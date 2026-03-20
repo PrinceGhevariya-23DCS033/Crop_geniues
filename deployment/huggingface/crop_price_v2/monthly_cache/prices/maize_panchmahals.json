@@ -1,0 +1,11 @@
+{
+  "commodity": "Maize",
+  "district": "panchmahals",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.708686",
+  "monthly_mean_price": 2339.7576409065464,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-10-01"
+}

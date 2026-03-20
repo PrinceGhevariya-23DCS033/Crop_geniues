@@ -1,0 +1,11 @@
+{
+  "commodity": "Mustard",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.518306",
+  "monthly_mean_price": 5033.50227854991,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

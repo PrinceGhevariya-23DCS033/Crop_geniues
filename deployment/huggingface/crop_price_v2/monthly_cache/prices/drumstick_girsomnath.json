@@ -1,0 +1,11 @@
+{
+  "commodity": "Drumstick",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.486013",
+  "monthly_mean_price": 1350.8333333333333,
+  "days_traded": 4,
+  "data_source": "CSV",
+  "last_date": "2012-04-01"
+}

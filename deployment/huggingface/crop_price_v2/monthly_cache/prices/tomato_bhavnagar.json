@@ -1,0 +1,11 @@
+{
+  "commodity": "Tomato",
+  "district": "bhavnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:07.144302",
+  "monthly_mean_price": 2534.8166768901738,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-01-01"
+}

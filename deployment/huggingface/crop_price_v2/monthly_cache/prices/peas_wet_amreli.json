@@ -1,0 +1,11 @@
+{
+  "commodity": "Peas Wet",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.294446",
+  "monthly_mean_price": 3903.4680658393895,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2023-09-01"
+}

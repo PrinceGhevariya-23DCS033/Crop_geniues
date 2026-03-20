@@ -1,0 +1,11 @@
+{
+  "commodity": "Apple",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.742609",
+  "monthly_mean_price": 3823.0161841834633,
+  "days_traded": 26,
+  "data_source": "CSV",
+  "last_date": "2015-03-01"
+}

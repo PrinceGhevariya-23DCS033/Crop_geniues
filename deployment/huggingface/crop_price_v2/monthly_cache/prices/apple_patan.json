@@ -1,0 +1,11 @@
+{
+  "commodity": "Apple",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.770324",
+  "monthly_mean_price": 3015.0,
+  "days_traded": 1,
+  "data_source": "CSV",
+  "last_date": "2008-04-01"
+}

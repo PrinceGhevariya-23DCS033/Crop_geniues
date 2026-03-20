@@ -1,0 +1,11 @@
+{
+  "commodity": "Garlic",
+  "district": "kheda",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.665346",
+  "monthly_mean_price": 2630.140993265993,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2023-10-01"
+}

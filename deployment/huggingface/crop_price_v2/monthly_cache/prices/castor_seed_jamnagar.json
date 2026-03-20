@@ -1,0 +1,11 @@
+{
+  "commodity": "Castor Seed",
+  "district": "jamnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.772956",
+  "monthly_mean_price": 5925.1095808795035,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-10-01"
+}

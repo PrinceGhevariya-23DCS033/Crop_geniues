@@ -1,0 +1,11 @@
+{
+  "commodity": "Banana",
+  "district": "chhotaudaipur",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.853742",
+  "monthly_mean_price": 860.0480881945165,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2019-09-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Raddish",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.566546",
+  "monthly_mean_price": 1077.3949232585599,
+  "days_traded": 22,
+  "data_source": "CSV",
+  "last_date": "2014-01-01"
+}

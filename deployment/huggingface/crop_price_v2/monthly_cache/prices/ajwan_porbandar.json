@@ -1,0 +1,11 @@
+{
+  "commodity": "Ajwan",
+  "district": "porbandar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.602437",
+  "monthly_mean_price": 4954.545454545455,
+  "days_traded": 11,
+  "data_source": "CSV",
+  "last_date": "2025-12-01"
+}

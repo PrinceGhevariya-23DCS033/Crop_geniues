@@ -1,0 +1,11 @@
+{
+  "commodity": "Ground Nut Seed",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.195169",
+  "monthly_mean_price": 3897.0,
+  "days_traded": 3,
+  "data_source": "CSV",
+  "last_date": "2016-11-01"
+}

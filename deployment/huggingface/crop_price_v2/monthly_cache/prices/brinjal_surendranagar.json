@@ -1,0 +1,11 @@
+{
+  "commodity": "Brinjal",
+  "district": "surendranagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.220298",
+  "monthly_mean_price": 3033.718734968735,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

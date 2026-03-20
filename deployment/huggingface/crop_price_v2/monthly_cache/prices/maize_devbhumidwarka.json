@@ -1,0 +1,11 @@
+{
+  "commodity": "Maize",
+  "district": "devbhumidwarka",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.653586",
+  "monthly_mean_price": 1214.1666666666667,
+  "days_traded": 12,
+  "data_source": "CSV",
+  "last_date": "2016-06-01"
+}

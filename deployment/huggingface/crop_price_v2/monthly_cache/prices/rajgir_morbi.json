@@ -1,0 +1,11 @@
+{
+  "commodity": "Rajgir",
+  "district": "morbi",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.676740",
+  "monthly_mean_price": 3063.4,
+  "days_traded": 5,
+  "data_source": "CSV",
+  "last_date": "2009-12-01"
+}

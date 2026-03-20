@@ -1,0 +1,11 @@
+{
+  "commodity": "Green Chilli",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.844177",
+  "monthly_mean_price": 3097.938325766339,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

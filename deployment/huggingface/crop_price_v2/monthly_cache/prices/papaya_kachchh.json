@@ -1,0 +1,11 @@
+{
+  "commodity": "Papaya",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.243397",
+  "monthly_mean_price": 2592.767857142857,
+  "days_traded": 4,
+  "data_source": "CSV",
+  "last_date": "2025-11-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Onion Green",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.080033",
+  "monthly_mean_price": 1501.596632996633,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2020-03-01"
+}

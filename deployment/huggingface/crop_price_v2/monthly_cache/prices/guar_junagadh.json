@@ -1,0 +1,11 @@
+{
+  "commodity": "Guar",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.332801",
+  "monthly_mean_price": 2110.098638595114,
+  "days_traded": 28,
+  "data_source": "CSV",
+  "last_date": "2015-01-01"
+}

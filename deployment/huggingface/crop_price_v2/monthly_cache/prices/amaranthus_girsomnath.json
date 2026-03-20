@@ -1,0 +1,11 @@
+{
+  "commodity": "Amaranthus",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.662186",
+  "monthly_mean_price": 4365.833333333333,
+  "days_traded": 12,
+  "data_source": "CSV",
+  "last_date": "2017-12-01"
+}

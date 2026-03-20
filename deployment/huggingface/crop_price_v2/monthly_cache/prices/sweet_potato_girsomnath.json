@@ -1,0 +1,11 @@
+{
+  "commodity": "Sweet Potato",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.837535",
+  "monthly_mean_price": 978.8333333333334,
+  "days_traded": 5,
+  "data_source": "CSV",
+  "last_date": "2011-05-01"
+}

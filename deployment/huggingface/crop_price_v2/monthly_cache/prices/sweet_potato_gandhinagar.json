@@ -1,0 +1,11 @@
+{
+  "commodity": "Sweet Potato",
+  "district": "gandhinagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.834712",
+  "monthly_mean_price": 1217.0833333333335,
+  "days_traded": 5,
+  "data_source": "CSV",
+  "last_date": "2020-06-01"
+}

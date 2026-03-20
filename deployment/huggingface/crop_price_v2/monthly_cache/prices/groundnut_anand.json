@@ -1,0 +1,11 @@
+{
+  "commodity": "Groundnut",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.988136",
+  "monthly_mean_price": 2598.77721661055,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2010-07-01"
+}

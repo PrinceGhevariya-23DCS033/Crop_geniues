@@ -1,0 +1,11 @@
+{
+  "commodity": "Guar",
+  "district": "panchmahals",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.374570",
+  "monthly_mean_price": 1716.8333333333333,
+  "days_traded": 6,
+  "data_source": "CSV",
+  "last_date": "2015-02-01"
+}

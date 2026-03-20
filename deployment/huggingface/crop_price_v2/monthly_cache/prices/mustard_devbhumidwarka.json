@@ -1,0 +1,11 @@
+{
+  "commodity": "Mustard",
+  "district": "devbhumidwarka",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.453486",
+  "monthly_mean_price": 4106.956547619048,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2025-10-01"
+}

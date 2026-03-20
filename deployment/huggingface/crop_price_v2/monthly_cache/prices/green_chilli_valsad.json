@@ -1,0 +1,11 @@
+{
+  "commodity": "Green Chilli",
+  "district": "valsad",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.872992",
+  "monthly_mean_price": 3192.240149075294,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2016-02-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Castor Seed",
+  "district": "narmada",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.825273",
+  "monthly_mean_price": 6600.0,
+  "days_traded": 3,
+  "data_source": "CSV",
+  "last_date": "2024-08-01"
+}

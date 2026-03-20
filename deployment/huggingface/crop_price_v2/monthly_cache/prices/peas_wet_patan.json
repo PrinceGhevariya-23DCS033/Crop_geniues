@@ -1,0 +1,11 @@
+{
+  "commodity": "Peas Wet",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.332418",
+  "monthly_mean_price": 3905.0016534391534,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2015-04-01"
+}

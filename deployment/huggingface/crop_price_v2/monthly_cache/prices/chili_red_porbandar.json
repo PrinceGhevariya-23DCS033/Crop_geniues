@@ -1,0 +1,11 @@
+{
+  "commodity": "Chili Red",
+  "district": "porbandar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.085607",
+  "monthly_mean_price": 9044.384701631272,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2025-05-01"
+}

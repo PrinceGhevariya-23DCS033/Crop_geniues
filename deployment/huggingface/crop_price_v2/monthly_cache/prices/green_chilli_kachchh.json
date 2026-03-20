@@ -1,0 +1,11 @@
+{
+  "commodity": "Green Chilli",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.796185",
+  "monthly_mean_price": 2195.595238095238,
+  "days_traded": 8,
+  "data_source": "CSV",
+  "last_date": "2025-11-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Peas Wet",
+  "district": "banaskantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.302807",
+  "monthly_mean_price": 1477.6118827160492,
+  "days_traded": 9,
+  "data_source": "CSV",
+  "last_date": "2009-03-01"
+}

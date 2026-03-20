@@ -1,0 +1,11 @@
+{
+  "commodity": "Green Peas",
+  "district": "kheda",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.909184",
+  "monthly_mean_price": 1154.1245103276353,
+  "days_traded": 12,
+  "data_source": "CSV",
+  "last_date": "2008-03-01"
+}

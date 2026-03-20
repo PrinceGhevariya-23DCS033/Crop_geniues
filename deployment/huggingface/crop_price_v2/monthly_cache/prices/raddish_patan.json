@@ -1,0 +1,11 @@
+{
+  "commodity": "Raddish",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.587512",
+  "monthly_mean_price": 369.4409430438842,
+  "days_traded": 17,
+  "data_source": "CSV",
+  "last_date": "2020-01-01"
+}

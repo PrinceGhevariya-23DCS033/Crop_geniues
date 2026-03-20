@@ -1,0 +1,11 @@
+{
+  "commodity": "Capsicum",
+  "district": "kheda",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.478478",
+  "monthly_mean_price": 1795.5574074074073,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2023-11-01"
+}

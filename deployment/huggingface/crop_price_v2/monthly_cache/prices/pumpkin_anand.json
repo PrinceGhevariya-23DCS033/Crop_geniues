@@ -1,0 +1,11 @@
+{
+  "commodity": "Pumpkin",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.456640",
+  "monthly_mean_price": 745.8333333333333,
+  "days_traded": 5,
+  "data_source": "CSV",
+  "last_date": "2015-02-01"
+}

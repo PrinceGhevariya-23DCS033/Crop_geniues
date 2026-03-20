@@ -1,0 +1,11 @@
+{
+  "commodity": "Tinda",
+  "district": "banaskantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.921063",
+  "monthly_mean_price": 1583.4444444444446,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2014-12-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Papaya",
+  "district": "girsomnath",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.236527",
+  "monthly_mean_price": 960.4166666666666,
+  "days_traded": 3,
+  "data_source": "CSV",
+  "last_date": "2007-03-01"
+}

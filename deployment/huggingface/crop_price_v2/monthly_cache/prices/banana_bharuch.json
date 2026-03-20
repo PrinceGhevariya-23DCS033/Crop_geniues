@@ -1,0 +1,11 @@
+{
+  "commodity": "Banana",
+  "district": "bharuch",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.844658",
+  "monthly_mean_price": 904.3884782113387,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2022-05-01"
+}

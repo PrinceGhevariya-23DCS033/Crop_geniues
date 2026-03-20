@@ -1,0 +1,11 @@
+{
+  "commodity": "Cauliflower",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.975374",
+  "monthly_mean_price": 1711.7301587301588,
+  "days_traded": 15,
+  "data_source": "CSV",
+  "last_date": "2025-11-01"
+}

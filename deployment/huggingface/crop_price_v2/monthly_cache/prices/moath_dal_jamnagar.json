@@ -1,0 +1,11 @@
+{
+  "commodity": "Moath Dal",
+  "district": "jamnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:04.402614",
+  "monthly_mean_price": 3589.475726495727,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2019-03-01"
+}

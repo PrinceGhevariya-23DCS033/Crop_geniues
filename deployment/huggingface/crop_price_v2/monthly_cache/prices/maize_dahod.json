@@ -1,0 +1,11 @@
+{
+  "commodity": "Maize",
+  "district": "dahod",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.649179",
+  "monthly_mean_price": 2307.0418449179724,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-10-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Castor Seed",
+  "district": "surendranagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.866902",
+  "monthly_mean_price": 6116.17549940084,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-12-01"
+}

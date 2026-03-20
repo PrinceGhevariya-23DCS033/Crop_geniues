@@ -1,0 +1,11 @@
+{
+  "commodity": "Beetroot",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:00.856282",
+  "monthly_mean_price": 653.4853174603174,
+  "days_traded": 15,
+  "data_source": "CSV",
+  "last_date": "2019-07-01"
+}

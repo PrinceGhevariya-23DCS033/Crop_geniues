@@ -1,0 +1,122 @@
+# ─── Node.js ─────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ─── Python ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ─── IDE & Editors ────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.vim/
+
+# ─── Environment Variables ────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# ─── Build & Dist ─────────────────────────────────────────────────────────
+dist/
+build/
+.next/
+out/
+.cache/
+.parcel-cache/
+.turbo/
+
+# ─── Large Model Files ────────────────────────────────────────────────────
+*.h5
+*.pkl
+*.joblib
+*.pth
+*.pt
+*.onnx
+*.pb
+*.model
+*.weights
+
+# ─── Large Dataset Files ──────────────────────────────────────────────────
+datasets/
+*.csv.gz
+*.zip
+*.tar.gz
+*.7z
+
+# ─── Logs ─────────────────────────────────────────────────────────────────
+logs/
+*.log
+lerna-debug.log*
+
+# ─── Temp Files ───────────────────────────────────────────────────────────
+tmp/
+temp/
+*.tmp
+*.bak
+
+# ─── OS Files ─────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ─── Documentation ────────────────────────────────────────────────────────
+docs/node_modules/
+
+# ─── Cache ────────────────────────────────────────────────────────────────
+.cache
+.eslintcache
+.node-gyp/
+
+# ─── Misc ─────────────────────────────────────────────────────────────────
+.project
+.pydevproject
+.settings/
+*.iml
+.gradle/
+.terraform/
+*.tfstate*

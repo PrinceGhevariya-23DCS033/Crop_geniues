@@ -1,0 +1,11 @@
+{
+  "commodity": "Tinda",
+  "district": "valsad",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.998228",
+  "monthly_mean_price": 5905.6499736374735,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-08-01"
+}

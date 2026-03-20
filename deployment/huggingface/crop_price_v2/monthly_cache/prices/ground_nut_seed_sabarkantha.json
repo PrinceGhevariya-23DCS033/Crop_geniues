@@ -1,0 +1,11 @@
+{
+  "commodity": "Ground Nut Seed",
+  "district": "sabarkantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.205644",
+  "monthly_mean_price": 3700.573717948718,
+  "days_traded": 13,
+  "data_source": "CSV",
+  "last_date": "2019-01-01"
+}

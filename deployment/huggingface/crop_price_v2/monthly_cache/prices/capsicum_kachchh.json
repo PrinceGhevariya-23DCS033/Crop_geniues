@@ -1,0 +1,11 @@
+{
+  "commodity": "Capsicum",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.474752",
+  "monthly_mean_price": 2929.621848739496,
+  "days_traded": 17,
+  "data_source": "CSV",
+  "last_date": "2016-10-01"
+}

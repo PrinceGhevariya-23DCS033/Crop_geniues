@@ -1,0 +1,11 @@
+{
+  "commodity": "Orange",
+  "district": "bharuch",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.154831",
+  "monthly_mean_price": 2206.4294916034046,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2025-04-01"
+}

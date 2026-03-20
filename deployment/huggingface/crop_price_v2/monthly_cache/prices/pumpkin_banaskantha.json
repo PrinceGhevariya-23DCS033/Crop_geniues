@@ -1,0 +1,11 @@
+{
+  "commodity": "Pumpkin",
+  "district": "banaskantha",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.463313",
+  "monthly_mean_price": 320.96792328042335,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2014-09-01"
+}

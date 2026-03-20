@@ -1,0 +1,11 @@
+{
+  "commodity": "Cauliflower",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.921787",
+  "monthly_mean_price": 2587.8667137862135,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

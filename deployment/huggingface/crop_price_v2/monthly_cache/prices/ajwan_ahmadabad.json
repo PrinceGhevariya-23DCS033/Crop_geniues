@@ -1,0 +1,11 @@
+{
+  "commodity": "Ajwan",
+  "district": "ahmadabad",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.526754",
+  "monthly_mean_price": 11537.599047619047,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-08-01"
+}

@@ -1,0 +1,11 @@
+{
+  "commodity": "Apple",
+  "district": "kachchh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.747207",
+  "monthly_mean_price": 3475.4593554593553,
+  "days_traded": 9,
+  "data_source": "CSV",
+  "last_date": "2016-03-01"
+}

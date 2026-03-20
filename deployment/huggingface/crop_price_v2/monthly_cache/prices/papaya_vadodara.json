@@ -1,0 +1,11 @@
+{
+  "commodity": "Papaya",
+  "district": "vadodara",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.275612",
+  "monthly_mean_price": 2075.5079365079364,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2019-09-01"
+}

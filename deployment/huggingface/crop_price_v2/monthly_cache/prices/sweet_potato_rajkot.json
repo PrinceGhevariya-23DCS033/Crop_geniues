@@ -1,0 +1,11 @@
+{
+  "commodity": "Sweet Potato",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.877165",
+  "monthly_mean_price": 952.301984126984,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

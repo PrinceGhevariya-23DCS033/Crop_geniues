@@ -1,0 +1,11 @@
+{
+  "commodity": "Soanf",
+  "district": "patan",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:06.776757",
+  "monthly_mean_price": 7585.348103470604,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-10-01"
+}

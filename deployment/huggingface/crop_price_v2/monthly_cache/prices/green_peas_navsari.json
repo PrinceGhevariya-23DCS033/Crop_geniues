@@ -1,0 +1,11 @@
+{
+  "commodity": "Green Peas",
+  "district": "navsari",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.924985",
+  "monthly_mean_price": 2323.184385292734,
+  "days_traded": 10,
+  "data_source": "CSV",
+  "last_date": "2007-05-01"
+}

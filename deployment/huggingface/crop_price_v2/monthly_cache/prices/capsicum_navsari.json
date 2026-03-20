@@ -1,0 +1,11 @@
+{
+  "commodity": "Capsicum",
+  "district": "navsari",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.492694",
+  "monthly_mean_price": 4115.245279146141,
+  "days_traded": 29,
+  "data_source": "CSV",
+  "last_date": "2026-01-01"
+}

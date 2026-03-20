@@ -1,0 +1,11 @@
+{
+  "commodity": "Capsicum",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:01.444619",
+  "monthly_mean_price": 2038.6237373737374,
+  "days_traded": 18,
+  "data_source": "CSV",
+  "last_date": "2019-12-01"
+}

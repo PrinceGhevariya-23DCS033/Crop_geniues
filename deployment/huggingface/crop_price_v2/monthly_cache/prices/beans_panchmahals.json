@@ -1,0 +1,11 @@
+{
+  "commodity": "Beans",
+  "district": "panchmahals",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:00.750134",
+  "monthly_mean_price": 1377.6145833333333,
+  "days_traded": 24,
+  "data_source": "CSV",
+  "last_date": "2014-04-01"
+}

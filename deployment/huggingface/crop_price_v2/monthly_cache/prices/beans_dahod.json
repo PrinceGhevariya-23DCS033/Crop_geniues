@@ -1,0 +1,11 @@
+{
+  "commodity": "Beans",
+  "district": "dahod",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:00.449506",
+  "monthly_mean_price": 3797.3055555555557,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2024-05-01"
+}

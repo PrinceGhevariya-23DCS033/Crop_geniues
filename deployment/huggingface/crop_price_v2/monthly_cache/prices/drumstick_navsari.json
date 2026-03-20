@@ -1,0 +1,11 @@
+{
+  "commodity": "Drumstick",
+  "district": "navsari",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.504549",
+  "monthly_mean_price": 900.0,
+  "days_traded": 1,
+  "data_source": "CSV",
+  "last_date": "2023-07-01"
+}

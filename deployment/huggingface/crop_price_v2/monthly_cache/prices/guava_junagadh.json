@@ -1,0 +1,11 @@
+{
+  "commodity": "Guava",
+  "district": "junagadh",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.470384",
+  "monthly_mean_price": 2210.0,
+  "days_traded": 10,
+  "data_source": "CSV",
+  "last_date": "2015-10-01"
+}

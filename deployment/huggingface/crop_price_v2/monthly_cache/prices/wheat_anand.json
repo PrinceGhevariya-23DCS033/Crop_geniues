@@ -1,0 +1,11 @@
+{
+  "commodity": "Wheat",
+  "district": "anand",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:07.409702",
+  "monthly_mean_price": 1794.8659427609427,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2024-12-01"
+}

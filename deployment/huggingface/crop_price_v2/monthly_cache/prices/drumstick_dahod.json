@@ -1,0 +1,11 @@
+{
+  "commodity": "Drumstick",
+  "district": "dahod",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.480132",
+  "monthly_mean_price": 6006.335630173362,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-01-01"
+}

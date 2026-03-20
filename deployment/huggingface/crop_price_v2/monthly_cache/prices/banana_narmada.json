@@ -1,0 +1,11 @@
+{
+  "commodity": "Banana",
+  "district": "narmada",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.930606",
+  "monthly_mean_price": 1983.665071685729,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

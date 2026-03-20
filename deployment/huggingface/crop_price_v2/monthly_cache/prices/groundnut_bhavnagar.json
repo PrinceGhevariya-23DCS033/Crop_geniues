@@ -1,0 +1,11 @@
+{
+  "commodity": "Groundnut",
+  "district": "bhavnagar",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:03.003326",
+  "monthly_mean_price": 5721.481758576034,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-02-01"
+}

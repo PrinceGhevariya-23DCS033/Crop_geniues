@@ -1,0 +1,11 @@
+{
+  "commodity": "Green Chilli",
+  "district": "panchmahals",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.829796",
+  "monthly_mean_price": 1561.6666666666667,
+  "days_traded": 5,
+  "data_source": "CSV",
+  "last_date": "2021-01-01"
+}

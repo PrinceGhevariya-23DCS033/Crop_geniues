@@ -1,0 +1,11 @@
+{
+  "commodity": "Mustard",
+  "district": "surat",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:05.660390",
+  "monthly_mean_price": 3856.783950617284,
+  "days_traded": 9,
+  "data_source": "CSV",
+  "last_date": "2025-03-01"
+}

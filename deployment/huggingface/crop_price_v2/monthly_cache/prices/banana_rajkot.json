@@ -1,0 +1,11 @@
+{
+  "commodity": "Banana",
+  "district": "rajkot",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:27:59.955423",
+  "monthly_mean_price": 1821.7821476074378,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2026-01-01"
+}

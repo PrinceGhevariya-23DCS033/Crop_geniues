@@ -1,0 +1,11 @@
+{
+  "commodity": "Groundnut",
+  "district": "bharuch",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:02.998910",
+  "monthly_mean_price": 2028.0555555555557,
+  "days_traded": 3,
+  "data_source": "CSV",
+  "last_date": "2010-08-01"
+}

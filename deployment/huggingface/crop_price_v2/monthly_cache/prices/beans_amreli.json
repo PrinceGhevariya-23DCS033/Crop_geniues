@@ -1,0 +1,11 @@
+{
+  "commodity": "Beans",
+  "district": "amreli",
+  "year": 2026,
+  "month": 2,
+  "cached_at": "2026-02-24T23:28:00.040034",
+  "monthly_mean_price": 4332.861111111111,
+  "days_traded": 30,
+  "data_source": "CSV",
+  "last_date": "2023-06-01"
+}
