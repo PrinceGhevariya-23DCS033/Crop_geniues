@@ -1,292 +1,246 @@
-# Crop Geniues - Project Workflow Guide
-
-This document explains how the full project works, which file does what, and how frontend, backend, models, datasets, and deployment folders connect.
-
-## 1) High-level architecture
-
-Crop Geniues is organized as a unified workspace with these main parts:
-
-- `frontend/`: React + Vite UI (user-facing web app)
-- `backend/`: Express API gateway + auth/history/notifications + proxies to ML services
-- `model/`: model artifacts grouped by module
-- `datasets/`: training/reference data grouped by module
-- `notebooks/`: model-wise notebook folders
-- `deployment/`: GitHub workflows and Hugging Face deployment assets
-
-### Runtime flow (request path)
-
-1. User interacts with frontend page.
-2. Frontend calls API helper in `frontend/src/utils/api.js`.
-3. Vite proxy forwards `/api/*` to Express backend (`http://localhost:5000`).
-4. Express route validates input, normalizes fields, and either:
-   - uses MongoDB (auth/history/notifications), or
-   - proxies to ML service endpoints (crop recommendation, leaf disease, crop price).
-5. Backend returns normalized JSON response to frontend.
-6. Frontend updates page state and shows result.
-
-## 2) Folder-by-folder responsibility map
-
-## `frontend/`
-
-### Core bootstrapping files
-
-- `frontend/src/main.jsx`: React mount point
-- `frontend/src/App.jsx`: route map and global providers
-- `frontend/vite.config.js`: alias setup and backend proxy (`/api` -> `http://localhost:5000`)
-- `frontend/package.json`: scripts and dependencies
-
-### Context/state files
-
-- `frontend/src/context/AuthContext.jsx`
-  - Session restore from token
-  - Register/login/logout
-  - Profile/password update calls
-- `frontend/src/context/AppContext.jsx`
-  - Loads history and notifications for authenticated users
-  - Adds history entries, notification read state management
-- `frontend/src/context/ThemeContext.jsx`
-  - Theme handling for UI
-
-### API layer
-
-- `frontend/src/utils/api.js`
-  - Centralized fetch wrapper
-  - Adds auth token headers
-  - Exposes all backend calls:
-    - crop recommendation
-    - leaf disease detection
-    - price prediction
-    - history
-    - notifications
-    - agri news
-    - health
-
-### Pages and user flow
-
-- `frontend/src/pages/AuthPage.jsx`: login/register forms
-- `frontend/src/pages/Dashboard.jsx`: dashboard overview
-- `frontend/src/pages/CropRecommendation.jsx`: NPK + pH + place input and result
-- `frontend/src/pages/LeafDisease.jsx`: image upload + disease details
-- `frontend/src/pages/PricePrediction.jsx`: crop/district + harvest window prediction
-- `frontend/src/pages/History.jsx`: user prediction history
-- `frontend/src/pages/AgriNews.jsx`: agriculture news feed
-- `frontend/src/pages/WeatherForecast.jsx`: weather page
-- `frontend/src/pages/Settings.jsx`: profile/preferences
-
-## `backend/`
-
-### Server and config
-
-- `backend/server.js`
-  - Express app initialization
-  - CORS and JSON middleware
-  - MongoDB connection startup
-  - Route mounting
-  - Health endpoint and root endpoint
-- `backend/config/db.js`
-  - Mongoose connection using `MONGODB_URI`
-
-### Middleware
-
-- `backend/middleware/auth.js`
-  - JWT verification (`protect`)
-  - Optional token parsing (`optionalAuth`)
-  - Token generation helper (`generateToken`)
-
-### Mongo models
-
-- `backend/models/User.js`
-  - Account schema, password hashing, language/preferences fields
-- `backend/models/History.js`
-  - Prediction history per user
-- `backend/models/Notification.js`
-  - Notification records per user
-
-### Route modules
-
-- `backend/routes/auth.js`
-  - Register/login/me/profile/password endpoints
-  - Token-based session flow
-- `backend/routes/cropRecommendation.js`
-  - Proxies to `CROP_RECOMMENDATION_API`
-  - Validates `place, N, P, K, ph`
-  - Normalizes geocode place string
-- `backend/routes/leafDisease.js`
-  - Upload endpoint using `multer`
-  - Proxies image to `PLANT_DISEASE_API`
-  - Enriches response with disease severity/cure/prevention metadata
-- `backend/routes/pricePrediction.js`
-  - Proxies to `CROP_PRICE_API`
-  - Supports crops list, districts list, and prediction
-  - Includes normalization and fallback lists
-- `backend/routes/history.js`
-  - Auth-protected history CRUD + stats
-- `backend/routes/notifications.js`
-  - Auth-protected notifications list/read/delete
-- `backend/routes/agriNews.js`
-  - RSS aggregation with fallback articles
-
-### Included service code (module-local copies)
-
-These folders are module services packaged inside the unified project:
-
-- `backend/crop_recommendation/`
-  - FastAPI app (`app.py`) for crop recommendation model logic
-- `backend/all_plant/`
-  - FastAPI app (`main.py`) for plant disease classification
-- `backend/crop_price_v2/`
-  - Gradio app (`app.py`) for crop price prediction and cache-based inference
-  - update scripts and `src/` pipeline utilities
-
-Note: In current full-stack runtime, Express acts as the main backend entrypoint. The ML services are consumed through configured API endpoints and deployment targets.
-
-## `model/`
-
-Model artifacts are grouped by feature domain:
-
-- `model/crop_recommendation/`
-- `model/all_plant/`
-- `model/crop_price_v2/`
-- `model/legacy_models/`
-
-Use this folder to keep reusable trained model artifacts centralized and separated by module.
-
-## `datasets/`
-
-Dataset assets are grouped for maintainability:
-
-- `datasets/raw_csv/`: raw/top-level csv files
-- `datasets/crops/`: commodity-wise crop data files
-- `datasets/final_merged_data/`: merged/processed outputs
-- `datasets/crop_price_v2/`: price module specific data assets
-
-## `notebooks/`
-
-Model-wise notebook organization:
-
-- `notebooks/crop_recommendation/`
-- `notebooks/all_plant/`
-- `notebooks/crop_price_v2/`
-- `notebooks/legacy_models/`
-
-This keeps experimentation and analysis separated from production code.
-
-## `deployment/`
-
-Deployment-related assets are organized by platform:
-
-- `deployment/github/`
-  - workflow assets and CI files (including monthly cache update workflows)
-- `deployment/huggingface/`
-  - module-wise deployment folders:
-    - `all_plant/`
-    - `crop_price_v2/`
-    - `crop_recommendation/`
-    - `legacy_models/`
-
-## 3) API contracts used by frontend
-
-Frontend calls these backend endpoints through `frontend/src/utils/api.js`:
-
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/auth/me`
-- `PUT /api/auth/profile`
-- `PUT /api/auth/password`
-
-- `POST /api/crop-recommendation/predict`
-- `POST /api/leaf-disease/predict`
-- `GET /api/price-prediction/crops`
-- `GET /api/price-prediction/districts`
-- `POST /api/price-prediction/predict`
-
-- `GET /api/history`
-- `POST /api/history`
-- `DELETE /api/history/:id`
-- `DELETE /api/history`
-- `GET /api/history/stats`
-
-- `GET /api/notifications`
-- `PUT /api/notifications/:id/read`
-- `PUT /api/notifications/read-all`
-- `DELETE /api/notifications/:id`
-
-- `GET /api/agri-news`
-- `GET /api/health`
-
-## 4) Required environment variables
-
-Backend (`backend/.env`) should define:
-
-- `PORT` (default 5000)
-- `MONGODB_URI`
-- `JWT_SECRET`
-- `PLANT_DISEASE_API`
-- `CROP_RECOMMENDATION_API`
-- `CROP_PRICE_API`
-
-Frontend optional variable:
-
-- `VITE_API_BASE` (defaults to `/api`)
-
-## 5) Local run instructions
-
-## Start backend
-
-From `backend/`:
-
-- `npm install`
-- `npm run dev`
-
-or production mode:
-
-- `npm start`
-
-## Start frontend
-
-From `frontend/`:
-
-- `npm install`
-- `npm run dev`
-
-Build frontend:
-
-- `npm run build`
-- `npm run preview`
-
-## Health checks
-
-- Backend health: `GET http://localhost:5000/api/health`
-- Frontend dev server: usually `http://localhost:5173`
-
-## 6) Auth and data persistence flow
-
-1. User registers/logs in from `AuthPage`.
-2. Backend returns JWT token + user profile.
-3. Token is stored in browser local storage.
-4. `AuthContext` sends `Authorization: Bearer <token>` for protected calls.
-5. Protected routes (`history`, `notifications`, profile updates) use `protect` middleware.
-6. MongoDB stores users, history entries, and notifications.
-
-## 7) Recent stability notes
-
-- Frontend auth input focus issue was fixed by stabilizing input component identity in `frontend/src/pages/AuthPage.jsx`.
-- Frontend dependency setup was corrected so Vite is available and `npm run dev` works.
-- Deployment workflow files were adjusted to fit the unified `Crop_geniues` structure.
-
-## 8) How to extend safely
-
-When adding a new module (example: weather ML):
-
-1. Add module service code under `backend/<module_name>/`.
-2. Add Express proxy route under `backend/routes/<module>.js`.
-3. Mount route in `backend/server.js`.
-4. Add API wrapper in `frontend/src/utils/api.js`.
-5. Add page/component and route in `frontend/src/App.jsx`.
-6. Add model artifacts under `model/<module_name>/`.
-7. Add datasets under `datasets/<module_name>/`.
-8. Add notebook folder under `notebooks/<module_name>/`.
-9. Add deployment assets under `deployment/huggingface/<module_name>/` and workflow updates if needed.
-
-This keeps the project consistent, self-contained, and easy to maintain.
-
+# Crop Geniues
+
+AI-powered smart farming platform that combines:
+- Crop recommendation
+- Leaf disease detection
+- Crop price prediction
+- Weather and agri-news support
+- User auth, history, and notifications
+
+This repository is a unified full-stack workspace with frontend, backend, model assets, datasets, notebooks, and deployment resources.
+
+## Table of Contents
+- Overview
+- Features
+- Tech Stack
+- Repository Structure
+- Architecture Flow
+- Prerequisites
+- Quick Start (Local Development)
+- Environment Variables
+- API Endpoints
+- Data and Model Layout
+- Deployment Notes
+- Troubleshooting
+- How to Extend
+
+## Overview
+Crop Geniues helps farmers and agri users make better decisions by combining multiple AI-enabled agriculture modules into one application.
+
+The frontend communicates with a central Express backend. The backend handles authentication and user data, and also proxies requests to ML services for predictions.
+
+## Features
+- Authentication with JWT
+- Crop recommendation from soil values and place
+- Leaf disease detection from uploaded image
+- Crop price prediction by commodity and district
+- Prediction history tracking per user
+- Notifications system
+- Agriculture news feed
+- Health endpoint for service checks
+
+## Tech Stack
+
+### Frontend
+- React 18
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Router
+
+### Backend
+- Node.js
+- Express
+- MongoDB with Mongoose
+- JWT auth
+- Multer (image upload)
+
+### ML Service Integrations
+- Crop recommendation service
+- Plant disease service
+- Crop price service
+
+## Repository Structure
+
+```text
+Crop_geniues/
+  frontend/                 # React + Vite client
+  backend/                  # Express API gateway + auth/history/notifications
+    all_plant/              # Plant disease service code (module-local)
+    crop_recommendation/    # Crop recommendation service code (module-local)
+    crop_price_v2/          # Crop price service code (module-local)
+  model/                    # Model artifacts grouped by module
+  datasets/                 # Raw and processed datasets
+  notebooks/                # Experiment notebooks by module
+  deployment/               # GitHub and Hugging Face deployment assets
+  PROJECT_WORKFLOW_GUIDE.md # Detailed internal project workflow
+```
+
+## Architecture Flow
+1. User interacts with the frontend UI.
+2. Frontend calls API helpers in frontend/src/utils/api.js.
+3. Dev proxy forwards /api requests to backend (localhost:5000).
+4. Backend routes validate input and either:
+   - read/write MongoDB (auth, history, notifications), or
+   - proxy to ML service endpoints.
+5. Backend returns normalized JSON.
+6. Frontend renders results.
+
+## Prerequisites
+- Node.js 18+
+- npm 9+
+- MongoDB instance (local or Atlas)
+
+## Quick Start (Local Development)
+
+### 1) Clone and move into project
+```bash
+git clone <your-repo-url>
+cd Crop_geniues
+```
+
+### 2) Setup backend
+```bash
+cd backend
+npm install
+```
+
+Create backend/.env (see Environment Variables section), then run:
+```bash
+npm run dev
+```
+
+Backend will run on:
+- http://localhost:5000
+
+### 3) Setup frontend
+In a new terminal:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend will run on:
+- http://localhost:5173
+
+### 4) Production builds
+Frontend:
+```bash
+cd frontend
+npm run build
+npm run preview
+```
+
+Backend:
+```bash
+cd backend
+npm start
+```
+
+## Environment Variables
+
+Create backend/.env:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+
+PLANT_DISEASE_API=https://your-plant-disease-service
+CROP_RECOMMENDATION_API=https://your-crop-recommendation-service
+CROP_PRICE_API=https://your-crop-price-service
+```
+
+Optional frontend variable (frontend/.env):
+
+```env
+VITE_API_BASE=/api
+```
+
+## API Endpoints
+
+### Auth
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/auth/me
+- PUT /api/auth/profile
+- PUT /api/auth/password
+
+### ML Predictions
+- POST /api/crop-recommendation/predict
+- POST /api/leaf-disease/predict
+- GET /api/price-prediction/crops
+- GET /api/price-prediction/districts
+- POST /api/price-prediction/predict
+
+### User Data
+- GET /api/history
+- POST /api/history
+- DELETE /api/history/:id
+- DELETE /api/history
+- GET /api/history/stats
+
+- GET /api/notifications
+- PUT /api/notifications/:id/read
+- PUT /api/notifications/read-all
+- DELETE /api/notifications/:id
+
+### Utility
+- GET /api/agri-news
+- GET /api/health
+
+## Data and Model Layout
+- model/: trained model artifacts by module
+- datasets/: raw, crop-specific, and processed data
+- notebooks/: module-wise experiments and analysis
+
+Keep large model files and datasets out of version control if not needed for runtime.
+
+## Deployment Notes
+- deployment/github/: CI and workflow assets
+- deployment/huggingface/: deployment resources per module
+
+Recommended deployment order:
+1. Deploy ML services
+2. Set backend environment variables to deployed ML URLs
+3. Deploy backend
+4. Deploy frontend with correct API base/proxy
+
+## Troubleshooting
+
+### Frontend cannot call backend
+- Confirm backend is running on port 5000
+- Confirm frontend Vite proxy is active
+- Check frontend/.env and backend CORS settings
+
+### 401 Unauthorized on protected endpoints
+- Verify login flow stores JWT token
+- Ensure Authorization header includes Bearer token
+- Confirm JWT_SECRET is set and stable
+
+### Leaf disease request fails
+- Verify PLANT_DISEASE_API URL
+- Ensure image is sent with field name file
+- Check backend logs for proxy timeout or model cold start
+
+### Mongo connection errors
+- Validate MONGODB_URI
+- Check IP/network whitelist for Atlas
+- Ensure database user has proper permissions
+
+## How to Extend
+When adding a new module:
+1. Add service logic under backend/<module_name>/
+2. Add Express route under backend/routes/
+3. Mount route in backend/server.js
+4. Add frontend API helper in frontend/src/utils/api.js
+5. Add page and route in frontend/src/
+6. Add model assets under model/<module_name>/
+7. Add data under datasets/<module_name>/
+8. Add notebook folder under notebooks/<module_name>/
+9. Add deployment assets under deployment/huggingface/<module_name>/
+
+## Notes
+- PROJECT_WORKFLOW_GUIDE.md remains the detailed internal workflow reference.
+- This README is the primary getting-started and maintenance guide.
