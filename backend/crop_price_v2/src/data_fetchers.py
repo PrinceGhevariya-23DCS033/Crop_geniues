@@ -510,7 +510,7 @@ class WeatherFetcher:
                 precip_values = [p for p in precipitation if p is not None]
                 
                 if not precip_values:
-                    return Nonenormalized_
+                    return None
                 
                 result = {
                     "district": district,
@@ -547,7 +547,7 @@ class NDVIFetcher:
         self.gee_available = False
         
         try:
-            import ee
+            import ee  # type: ignore[import-not-found]
             
             # Try to initialize
             try:
@@ -807,67 +807,3 @@ class CombinedDataFetcher:
         return combined
 
 
-# ============ EXAMPLE USAGE ============
-
-if __name__ == "__main__":
-    
-    # Test mandi price fetcher
-    print("=" * 60)
-    print("Testing Mandi Price Fetcher")
-    print("=" * 60)
-    
-    try:
-        mandi = MandiPriceFetcher()
-        
-        # Test with Ahmadabad (using normalized name from CSV)
-        result = mandi.compute_monthly_average(
-            commodity="Garlic",
-            district="Ahmadabad",
-            year=2024,
-            month=1
-        )
-        
-        if result:
-            print("\n✓ Monthly Average:")
-            for key, value in result.items():
-                print(f"  {key}: {value}")
-    
-    except Exception as e:
-        print(f"⚠ Test failed: {e}")
-    
-    # Test weather fetcher
-    print("\n" + "=" * 60)
-    print("Testing Weather Fetcher")
-    print("=" * 60)
-    
-    weather = WeatherFetcher()
-    
-    # Test with both variations
-    for district_name in ["Ahmedabad", "Ahmadabad"]:
-        print(f"\nTesting with '{district_name}':")
-        weather_result = weather.get_monthly_rainfall(
-            district=district_name,
-            year=2024,
-            month=1
-        )
-        
-        if weather_result:
-            print("✓ Monthly Rainfall:")
-            for key, value in weather_result.items():
-                print(f"  {key}: {value}")
-    
-    # Test district normalization
-    print("\n" + "=" * 60)
-    print("Testing District Normalization")
-    print("=" * 60)
-    
-    test_districts = [
-        "Ahmedabad", "ahmedabad", "Ahmadabad",
-        "Vadodara", "Vadodara (Baroda)",
-        "The Dangs", "TheDangs",
-        "Gir Somnath", "GirSomnath"
-    ]
-    
-    for district in test_districts:
-        normalized = normalize_district_name(district)
-        print(f"  '{district}' → '{normalized}'")

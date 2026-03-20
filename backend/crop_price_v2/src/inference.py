@@ -341,16 +341,3 @@ class CropPricePredictor:
         """Get growth horizon for a specific crop."""
         return self.crop_horizon.get(commodity, None)
 
-
-# ============ EXAMPLE USAGE ============
-if __name__ == "__main__":
-    
-    # Initialize predictor
-    predictor = CropPricePredictor()
-    
-    print("\n📋 Supported Crops:")
-    print(predictor.get_supported_crops()[:10], "...")
-    
-    print("\n🌾 Crop Growth Horizons:")
-    for crop in ["Garlic", "Wheat", "Cabbage", "Cotton", "Tomato"]:
-        print(f"  {crop}: {predictor.get_crop_horizon(crop)} months")

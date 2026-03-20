@@ -7,7 +7,7 @@ Provides uncertainty estimates for price predictions.
 
 import numpy as np
 import pandas as pd
-from typing import Dict, Tuple
+from typing import Dict
 from scipy import stats
 
 
@@ -106,156 +106,6 @@ class PredictionWithConfidence:
         return result
     
     
-    def predict_with_volatility_adjustment(
-        self,
-        X: pd.DataFrame,
-        current_price: float,
-        volatility_12: float,
-        commodity: str,
-        confidence_level: float = 0.95
-    ) -> Dict:
-        """
-        Generate prediction with volatility-adjusted confidence interval.
-        
-        Higher volatility = wider intervals
-        
-        Args:
-            X: Features
-            current_price: Current price
-            volatility_12: 12-month price volatility from features
-            commodity: Commodity name
-            confidence_level: Confidence level
-            
-        Returns:
-            Dict with prediction and adjusted intervals
-        """
-        
-        # Get base prediction
-        base_result = self.predict_with_interval(
-            X, current_price, commodity, confidence_level
-        )
-        
-        # Adjust interval based on volatility
-        # High volatility = wider interval
-        volatility_factor = 1 + (volatility_12 / current_price)
-        
-        predicted_price = base_result['predicted_price']
-        base_margin = (base_result['upper_bound'] - predicted_price)
-        
-        adjusted_margin = base_margin * volatility_factor
-        
-        result = {
-            'predicted_price': predicted_price,
-            'lower_bound': max(0, predicted_price - adjusted_margin),
-            'upper_bound': predicted_price + adjusted_margin,
-            'confidence_level': confidence_level * 100,
-            'interval_width': 2 * adjusted_margin,
-            'volatility_factor': volatility_factor,
-            'relative_uncertainty': (adjusted_margin / predicted_price) * 100
-        }
-        
-        return result
-    
-    
-    def predict_with_quantiles(
-        self,
-        X: pd.DataFrame,
-        current_price: float,
-        n_samples: int = 1000
-    ) -> Dict:
-        """
-        Generate prediction with bootstrapped quantiles.
-        
-        Uses model uncertainty by perturbing predictions.
-        
-        Args:
-            X: Features
-            current_price: Current price
-            n_samples: Number of bootstrap samples
-            
-        Returns:
-            Dict with median, p10, p25, p75, p90 predictions
-        """
-        
-        # Get point prediction
-        base_return = self.model.predict(X)[0]
-        base_price = current_price * np.exp(base_return)
-        
-        # Generate samples with noise
-        # Assume prediction error ~N(0, 0.05) in log-return space
-        noise_std = 0.05  # 5% typical error
-        
-        sampled_returns = np.random.normal(base_return, noise_std, n_samples)
-        sampled_prices = current_price * np.exp(sampled_returns)
-        
-        # Compute quantiles
-        result = {
-            'median': np.median(sampled_prices),
-            'mean': np.mean(sampled_prices),
-            'p10': np.percentile(sampled_prices, 10),
-            'p25': np.percentile(sampled_prices, 25),
-            'p75': np.percentile(sampled_prices, 75),
-            'p90': np.percentile(sampled_prices, 90),
-            'std': np.std(sampled_prices),
-            'iqr': np.percentile(sampled_prices, 75) - np.percentile(sampled_prices, 25)
-        }
-        
-        return result
-
-
-class EnsemblePrediction:
-    """
-    Ensemble multiple models for robust predictions.
-    """
-    
-    def __init__(self, models: list):
-        """
-        Initialize ensemble.
-        
-        Args:
-            models: List of trained models
-        """
-        self.models = models
-    
-    
-    def predict_ensemble(
-        self,
-        X: pd.DataFrame,
-        current_price: float
-    ) -> Dict:
-        """
-        Generate ensemble prediction with disagreement-based uncertainty.
-        
-        Args:
-            X: Features
-            current_price: Current price
-            
-        Returns:
-            Dict with mean, std, min, max predictions
-        """
-        
-        predictions = []
-        
-        for model in self.models:
-            pred_return = model.predict(X)[0]
-            pred_price = current_price * np.exp(pred_return)
-            predictions.append(pred_price)
-        
-        predictions = np.array(predictions)
-        
-        result = {
-            'ensemble_mean': np.mean(predictions),
-            'ensemble_median': np.median(predictions),
-            'ensemble_std': np.std(predictions),
-            'min_prediction': np.min(predictions),
-            'max_prediction': np.max(predictions),
-            'predictions': predictions.tolist(),
-            'model_agreement': 1 - (np.std(predictions) / np.mean(predictions))  # 1 = perfect agreement
-        }
-        
-        return result
-
-
 # ============ INTEGRATION WITH INFERENCE ============
 
 def add_confidence_to_prediction(
@@ -311,23 +161,3 @@ def add_confidence_to_prediction(
     return base_prediction
 
 
-# ============ EXAMPLE USAGE ============
-
-if __name__ == "__main__":
-    
-    # Example: Create mock historical predictions
-    historical = pd.DataFrame({
-        'actual': [5000, 5200, 4800, 5100, 5300],
-        'predicted': [4950, 5150, 4900, 5050, 5250],
-        'commodity': ['Garlic', 'Garlic', 'Wheat', 'Wheat', 'Garlic'],
-        'district': ['Ahmedabad', 'Ahmedabad', 'Rajkot', 'Rajkot', 'Ahmedabad']
-    })
-    
-    # Initialize (in practice, load your trained model)
-    # confidence_est = PredictionWithConfidence(model, historical)
-    
-    # Generate prediction with interval
-    # result = confidence_est.predict_with_interval(X, current_price=5000, commodity='Garlic')
-    
-    print("Confidence interval module ready!")
-    print("Use PredictionWithConfidence for uncertainty estimates.")

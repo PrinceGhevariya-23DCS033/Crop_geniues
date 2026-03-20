@@ -6,7 +6,7 @@ Fast predictions using monthly cached data.
 Optimized for Hugging Face Spaces deployment.
 """
 
-import gradio as gr
+import gradio as gr  # type: ignore[import-not-found]
 import pandas as pd
 import sys
 import os

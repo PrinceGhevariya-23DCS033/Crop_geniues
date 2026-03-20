@@ -239,38 +239,3 @@ CROP_HORIZONS = {
     "Cotton": 6, "Soanf": 4,
 }
 
-
-if __name__ == "__main__":
-    # Show district loading status first
-    print(f"District coordinates loaded: {len(DISTRICT_COORDS)} districts")
-    if DISTRICT_COORDS:
-        print("\nSample districts:")
-        for i, (district, coords) in enumerate(list(DISTRICT_COORDS.items())[:5]):
-            print(f"  {district}: {coords}")
-    
-    # Validate configuration
-    try:
-        Config.validate()
-        print("\n✓ Configuration valid")
-        print(f"  Model directory: {Config.MODEL_DIR}")
-        print(f"  API host: {Config.API_HOST}:{Config.API_PORT}")
-        print(f"  Supported crops: {len(CROP_HORIZONS)}")
-        print(f"  Supported districts: {len(DISTRICT_COORDS)}")
-        
-        # Test district normalization
-        print("\n✓ Testing district name normalization:")
-        test_cases = [
-            "Ahmedabad", "ahmedabad", "Ahmadabad",
-            "Vadodara", "Vadodara (Baroda)",
-            "The Dangs", "thedangs",
-            "Gir Somnath", "girsomnath"
-        ]
-        
-        for test in test_cases:
-            normalized = normalize_district_name(test)
-            in_coords = "✓" if normalized in DISTRICT_COORDS else "✗"
-            print(f"  {in_coords} '{test}' → '{normalized}'")
-            
-    except RuntimeError as e:
-        print(f"\n✗ Configuration validation failed:\n{e}")
-        print("\nNote: Set DATA_GOV_API_KEY in .env file to resolve this.")

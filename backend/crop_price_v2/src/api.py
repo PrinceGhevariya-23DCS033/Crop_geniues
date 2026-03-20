@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from inference import CropPricePredictor
 from data_fetchers import CombinedDataFetcher
-from confidence import PredictionWithConfidence, add_confidence_to_prediction
 from config import DISTRICT_COORDS, normalize_district_name
 
 
@@ -89,13 +88,11 @@ app.add_middleware(
 try:
     predictor = CropPricePredictor(model_dir="production_model")
     data_fetcher = CombinedDataFetcher()
-    confidence_estimator = None  # Will be initialized with historical data if available
     print("✓ Model and fetchers initialized")
 except Exception as e:
     print(f"❌ Initialization failed: {e}")
     predictor = None
     data_fetcher = None
-    confidence_estimator = None
 
 
 # ============ HELPER FUNCTIONS ============
@@ -542,16 +539,3 @@ async def get_districts():
         "note": "District names are normalized. Variations like 'Ahmedabad' will be mapped to 'Ahmadabad'"
     }
 
-
-# ============ RUN SERVER ============
-
-if __name__ == "__main__":
-    import uvicorn
-    
-    uvicorn.run(
-        "api:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True,
-        log_level="info"
-    )
