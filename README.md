@@ -155,7 +155,7 @@ CROP_PRICE_API=https://your-crop-price-service
 Optional frontend variable (frontend/.env):
 
 ```env
-VITE_API_BASE=/api
+VITE_API_BASE=http://localhost:5000/api
 ```
 
 ## API Endpoints

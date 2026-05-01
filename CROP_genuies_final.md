@@ -519,7 +519,7 @@ Operational benchmarks:
 5. TensorFlow image classification references for plant disease detection.
 6. MongoDB and Express documentation.
 
----
+---                
 
 ## APPENDICES
 

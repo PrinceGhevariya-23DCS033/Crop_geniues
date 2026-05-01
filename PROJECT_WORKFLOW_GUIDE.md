@@ -227,7 +227,7 @@ Backend (`backend/.env`) should define:
 
 Frontend optional variable:
 
-- `VITE_API_BASE` (defaults to `/api`)
+- `VITE_API_BASE` (defaults to `http://localhost:5000/api` in dev and `/api` in production)
 
 ## 5) Local run instructions
 
