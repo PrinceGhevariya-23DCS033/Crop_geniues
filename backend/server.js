@@ -4,10 +4,11 @@
  * Full-stack backend with MongoDB Atlas:
  *  1. Auth (Register/Login/Profile)       → /api/auth
  *  2. Crop Recommendation (HuggingFace)   → /api/crop-recommendation
- *  3. Plant Disease Detection (HuggingFace) → /api/leaf-disease
- *  4. Crop Price Prediction (HuggingFace) → /api/price-prediction
- *  5. Prediction History (MongoDB)        → /api/history
- *  6. Notifications (MongoDB)             → /api/notifications
+ *  3. Crop Yield Prediction (FastAPI)     → /api/yield-prediction
+ *  4. Plant Disease Detection (HuggingFace) → /api/leaf-disease
+ *  5. Crop Price Prediction (HuggingFace) → /api/price-prediction
+ *  6. Prediction History (MongoDB)        → /api/history
+ *  7. Notifications (MongoDB)             → /api/notifications
  */
 
 import 'dotenv/config';
@@ -15,6 +16,7 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import { cropRecommendationRouter } from './routes/cropRecommendation.js';
+import { yieldPredictionRouter } from './routes/yieldPrediction.js';
 import { leafDiseaseRouter } from './routes/leafDisease.js';
 import { pricePredictionRouter } from './routes/pricePrediction.js';
 import { authRouter } from './routes/auth.js';
@@ -35,6 +37,7 @@ app.use(express.json());
 // ─── Routes ─────────────────────────────────────────────────────────────────
 app.use('/api/auth', authRouter);
 app.use('/api/crop-recommendation', cropRecommendationRouter);
+app.use('/api/yield-prediction', yieldPredictionRouter);
 app.use('/api/leaf-disease', leafDiseaseRouter);
 app.use('/api/price-prediction', pricePredictionRouter);
 app.use('/api/history', historyRouter);
@@ -46,6 +49,7 @@ app.get('/api/health', async (_req, res) => {
   const apis = {
     plant_disease: process.env.PLANT_DISEASE_API,
     crop_recommendation: process.env.CROP_RECOMMENDATION_API,
+    crop_yield: process.env.CROP_YIELD_API,
     crop_price: process.env.CROP_PRICE_API,
   };
 
@@ -81,6 +85,7 @@ app.get('/', (_req, res) => {
         changePassword: 'PUT /api/auth/password',
       },
       cropRecommendation: 'POST /api/crop-recommendation/predict',
+      yieldPrediction: 'POST /api/yield-prediction/predict',
       leafDisease: 'POST /api/leaf-disease/predict',
       pricePrediction: {
         predict: 'POST /api/price-prediction/predict',

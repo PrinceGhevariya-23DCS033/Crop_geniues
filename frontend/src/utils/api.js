@@ -112,7 +112,35 @@ export async function predictPrice({ commodity, district }) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// 4. HEALTH CHECK
+// 4. CROP YIELD PREDICTION API
+// ═══════════════════════════════════════════════════════════════════════════
+
+/**
+ * Predict crop yield based on field and weather inputs.
+ *
+ * @param {{
+ *  area: number,
+ *  soilQuality: number,
+ *  rainfall?: number,
+ *  temperature?: number,
+ *  fertilizer?: number,
+ *  irrigationType: string,
+ *  district?: string,
+ *  crop?: string,
+ *  season?: string,
+ *  state?: string,
+ *  cropYear?: number,
+ * }} params
+ */
+export async function predictYield(params) {
+  return apiFetch('/yield-prediction/predict', {
+    method: 'POST',
+    body: JSON.stringify(params),
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 5. HEALTH CHECK
 // ═══════════════════════════════════════════════════════════════════════════
 
 /**
@@ -124,7 +152,7 @@ export async function checkHealth() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// 5. HISTORY API (MongoDB-backed)
+// 6. HISTORY API (MongoDB-backed)
 // ═══════════════════════════════════════════════════════════════════════════
 
 /** Get user's prediction history */
@@ -161,7 +189,7 @@ export async function getHistoryStats() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// 6. NOTIFICATIONS API (MongoDB-backed)
+// 7. NOTIFICATIONS API (MongoDB-backed)
 // ═══════════════════════════════════════════════════════════════════════════
 
 /** Get user's notifications */
@@ -185,7 +213,7 @@ export async function deleteNotification(id) {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// 7. AGRICULTURE NEWS API (Flask proxy)
+// 8. AGRICULTURE NEWS API (Flask proxy)
 // ═══════════════════════════════════════════════════════════════════════════
 
 /**

@@ -4,15 +4,24 @@
  */
 
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 import User from '../models/User.js';
 
 const JWT_SECRET = () => process.env.JWT_SECRET || 'crop-genius-secret-key-2026';
+const isMongoReady = () => mongoose.connection.readyState === 1;
 
 /**
  * Protect routes — requires valid JWT
  */
 export const protect = async (req, res, next) => {
   try {
+    if (!isMongoReady()) {
+      return res.status(503).json({
+        error: 'Authentication service unavailable',
+        detail: 'Database connection is not ready yet',
+      });
+    }
+
     let token;
 
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {

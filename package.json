@@ -1,0 +1,23 @@
+{
+  "name": "crop_geniues",
+  "version": "1.0.0",
+  "description": "AI-powered smart farming platform that combines:\r - Crop recommendation\r - Leaf disease detection\r - Crop price prediction\r - Weather and agri-news support\r - User auth, history, and notifications",
+  "main": "build_report_docx_detailed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrinceGhevariya-23DCS033/Crop_geniues.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrinceGhevariya-23DCS033/Crop_geniues/issues"
+  },
+  "homepage": "https://github.com/PrinceGhevariya-23DCS033/Crop_geniues#readme",
+  "dependencies": {
+    "docx": "^9.6.1"
+  }
+}

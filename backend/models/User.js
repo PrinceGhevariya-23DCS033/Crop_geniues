@@ -35,6 +35,22 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: '',
   },
+  crop: {
+    type: String,
+    default: '',
+  },
+  sowingDate: {
+    type: String,
+    default: '',
+  },
+  state: {
+    type: String,
+    default: '',
+  },
+  district: {
+    type: String,
+    default: '',
+  },
   avatar: {
     type: String,
     default: '👨‍🌾',

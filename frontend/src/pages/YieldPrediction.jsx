@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TrendingUp, Zap, Lightbulb, Target } from 'lucide-react'
 import toast from 'react-hot-toast'
@@ -7,46 +7,95 @@ import {
 } from 'recharts'
 import { FormInput, FormSelect, SectionHeader } from '@/components/ui/FormComponents'
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner'
-import { soilTypes, irrigationTypes, getYieldPrediction } from '@/utils/dummyData'
+import { cropsList, irrigationTypes } from '@/utils/dummyData'
+import { predictYield } from '@/utils/api'
 import { useApp } from '@/context/AppContext'
+import { useAuth } from '@/context/AuthContext'
+import { STATE_NAMES, getDistricts } from '@/data/districts'
 
 export default function YieldPrediction() {
+  const { user } = useAuth()
   const { addToHistory } = useApp()
   const [form, setForm] = useState({
+    crop: '',
     area: '', soilQuality: 7, rainfall: '', temperature: '',
-    fertilizer: '', irrigationType: '',
+    fertilizer: '', irrigationType: '', state: '', district: '',
   })
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [errors, setErrors] = useState({})
 
+  const districts = useMemo(() => getDistricts(form.state), [form.state])
+
+  useEffect(() => {
+    const preferredCrop = user?.crop?.trim() || localStorage.getItem('recentYieldCrop') || ''
+    if (preferredCrop) setForm(prev => ({ ...prev, crop: preferredCrop }))
+  }, [user?.crop])
+
   const validate = () => {
     const e = {}
+    if (!form.crop) e.crop = 'Select a crop'
     if (!form.area) e.area = 'Area is required'
-    if (!form.rainfall) e.rainfall = 'Rainfall is required'
-    if (!form.temperature) e.temperature = 'Temperature is required'
+    if (!form.state) e.state = 'State is required'
+    if (!form.district) e.district = 'District is required'
     if (!form.irrigationType) e.irrigationType = 'Select irrigation type'
+    if ((form.rainfall && !form.temperature) || (!form.rainfall && form.temperature)) {
+      e.rainfall = 'Provide both rainfall and temperature for manual weather override'
+      e.temperature = 'Provide both rainfall and temperature for manual weather override'
+    }
     setErrors(e)
     return Object.keys(e).length === 0
   }
 
   const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }))
 
+  const setField = (k, v) => {
+    setForm(prev => {
+      const next = { ...prev, [k]: v }
+      if (k === 'state') next.district = ''
+      return next
+    })
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!validate()) return toast.error('Please fill all required fields')
     setLoading(true); setResult(null)
-    await new Promise(r => setTimeout(r, 2200))
-    const r = getYieldPrediction(form)
-    setResult(r)
-    setLoading(false)
-    addToHistory({
-      module: 'Yield Prediction',
-      input: `${form.area} ha, ${form.irrigationType}, ${form.rainfall}mm`,
-      result: `${r.yield} t/ha`,
-      confidence: `${r.confidence}%`,
-    })
-    toast.success(`Predicted yield: ${r.yield} t/ha`)
+    try {
+      const data = await predictYield({
+        crop: form.crop,
+        area: Number(form.area),
+        soilQuality: Number(form.soilQuality),
+        rainfall: form.rainfall ? Number(form.rainfall) : undefined,
+        temperature: form.temperature ? Number(form.temperature) : undefined,
+        fertilizer: form.fertilizer ? Number(form.fertilizer) : 0,
+        irrigationType: form.irrigationType,
+        state: form.state,
+        district: form.district,
+      })
+
+      const mapped = {
+        yield: Number(data.predicted_yield).toFixed(2),
+        confidence: Number(data.confidence).toFixed(1),
+        tips: data.tips || [],
+        chartData: data.chart_data || [],
+      }
+
+      setResult(mapped)
+      localStorage.setItem('recentYieldCrop', form.crop)
+
+      addToHistory({
+        module: 'Yield Prediction',
+        input: `${form.crop}, ${form.area} ha, ${form.irrigationType}, ${form.district}, ${form.state}`,
+        result: `${mapped.yield} t/ha`,
+        confidence: `${mapped.confidence}%`,
+      })
+      toast.success(`Predicted yield: ${mapped.yield} t/ha`)
+    } catch (err) {
+      toast.error(err.message || 'Yield prediction failed')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -61,6 +110,12 @@ export default function YieldPrediction() {
         >
           <SectionHeader title="Field Parameters" subtitle="Enter your field data" />
           <form onSubmit={handleSubmit} className="space-y-4">
+            <FormSelect label="Crop *" id="crop" value={form.crop}
+              onChange={e => set('crop', e.target.value)} error={errors.crop}
+            >
+              <option value="">Select a crop</option>
+              {cropsList.map(crop => <option key={crop} value={crop}>{crop}</option>)}
+            </FormSelect>
             <FormInput label="Area (hectares) *" id="area" type="number" placeholder="e.g. 5.5"
               value={form.area} onChange={e => set('area', e.target.value)} error={errors.area}
             />
@@ -75,16 +130,33 @@ export default function YieldPrediction() {
               />
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <FormInput label="Rainfall (mm) *" id="rainfall" type="number" placeholder="e.g. 680"
+              <FormInput label="Rainfall (mm) - Optional" id="rainfall" type="number" placeholder="Auto from Open-Meteo"
                 value={form.rainfall} onChange={e => set('rainfall', e.target.value)} error={errors.rainfall}
               />
-              <FormInput label="Temperature (°C) *" id="temp" type="number" placeholder="e.g. 28"
+              <FormInput label="Temperature (°C) - Optional" id="temp" type="number" placeholder="Auto from Open-Meteo"
                 value={form.temperature} onChange={e => set('temperature', e.target.value)} error={errors.temperature}
               />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <FormSelect label="State *" id="state" value={form.state}
+                onChange={e => setField('state', e.target.value)} error={errors.state}
+              >
+                <option value="">Select state / UT</option>
+                {STATE_NAMES.map(s => <option key={s} value={s}>{s}</option>)}
+              </FormSelect>
+              <FormSelect label="District *" id="district" value={form.district}
+                onChange={e => set('district', e.target.value)} error={errors.district}
+              >
+                <option value="">{form.state ? 'Select district' : 'Select state first'}</option>
+                {districts.map(d => <option key={d.name} value={d.name}>{d.name}</option>)}
+              </FormSelect>
             </div>
             <FormInput label="Fertilizer Usage (kg/ha)" id="fert" type="number" placeholder="e.g. 120"
               value={form.fertilizer} onChange={e => set('fertilizer', e.target.value)}
             />
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              Crop, state, and district are used as model inputs. Leave rainfall and temperature empty to auto-fetch weather from Open-Meteo for selected district/state.
+            </p>
             <FormSelect label="Irrigation Type *" id="irr" value={form.irrigationType}
               onChange={e => set('irrigationType', e.target.value)} error={errors.irrigationType}>
               <option value="">Select irrigation type</option>

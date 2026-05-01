@@ -9,16 +9,26 @@
  */
 
 import { Router } from 'express';
+import mongoose from 'mongoose';
 import User from '../models/User.js';
 import Notification from '../models/Notification.js';
 import { protect, generateToken } from '../middleware/auth.js';
 
 const router = Router();
 
+const isMongoReady = () => mongoose.connection.readyState === 1;
+
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, phone, location } = req.body;
+    if (!isMongoReady()) {
+      return res.status(503).json({
+        error: 'Authentication service unavailable',
+        detail: 'Database connection is not ready yet',
+      });
+    }
+
+    const { name, email, password, phone, location, crop, sowingDate, state, district } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({ error: 'Name, email, and password are required' });
@@ -40,6 +50,10 @@ router.post('/register', async (req, res) => {
       password,
       phone: phone || '',
       location: location || '',
+      crop: crop || '',
+      sowingDate: sowingDate || '',
+      state: state || '',
+      district: district || '',
     });
 
     // Create welcome notifications
@@ -61,6 +75,10 @@ router.post('/register', async (req, res) => {
         email: user.email,
         phone: user.phone,
         location: user.location,
+        crop: user.crop,
+        sowingDate: user.sowingDate,
+        state: user.state,
+        district: user.district,
         avatar: user.avatar,
         language: user.language,
         notifications: user.notifications,
@@ -78,6 +96,13 @@ router.post('/register', async (req, res) => {
 // POST /api/auth/login
 router.post('/login', async (req, res) => {
   try {
+    if (!isMongoReady()) {
+      return res.status(503).json({
+        error: 'Authentication service unavailable',
+        detail: 'Database connection is not ready yet',
+      });
+    }
+
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -106,6 +131,10 @@ router.post('/login', async (req, res) => {
         email: user.email,
         phone: user.phone,
         location: user.location,
+        crop: user.crop,
+        sowingDate: user.sowingDate,
+        state: user.state,
+        district: user.district,
         avatar: user.avatar,
         language: user.language,
         notifications: user.notifications,
@@ -127,6 +156,10 @@ router.get('/me', protect, async (req, res) => {
         email: req.user.email,
         phone: req.user.phone,
         location: req.user.location,
+        crop: req.user.crop,
+        sowingDate: req.user.sowingDate,
+        state: req.user.state,
+        district: req.user.district,
         avatar: req.user.avatar,
         language: req.user.language,
         notifications: req.user.notifications,
@@ -140,12 +173,23 @@ router.get('/me', protect, async (req, res) => {
 // PUT /api/auth/profile — Update profile
 router.put('/profile', protect, async (req, res) => {
   try {
-    const { name, phone, location, language, avatar, notifications } = req.body;
+    if (!isMongoReady()) {
+      return res.status(503).json({
+        error: 'Authentication service unavailable',
+        detail: 'Database connection is not ready yet',
+      });
+    }
+
+    const { name, phone, location, crop, sowingDate, state, district, language, avatar, notifications } = req.body;
 
     const updates = {};
     if (name !== undefined) updates.name = name;
     if (phone !== undefined) updates.phone = phone;
     if (location !== undefined) updates.location = location;
+    if (crop !== undefined) updates.crop = crop;
+    if (sowingDate !== undefined) updates.sowingDate = sowingDate;
+    if (state !== undefined) updates.state = state;
+    if (district !== undefined) updates.district = district;
     if (language !== undefined) updates.language = language;
     if (avatar !== undefined) updates.avatar = avatar;
     if (notifications !== undefined) updates.notifications = notifications;
@@ -161,6 +205,10 @@ router.put('/profile', protect, async (req, res) => {
         email: user.email,
         phone: user.phone,
         location: user.location,
+        crop: user.crop,
+        sowingDate: user.sowingDate,
+        state: user.state,
+        district: user.district,
         avatar: user.avatar,
         language: user.language,
         notifications: user.notifications,
@@ -175,6 +223,13 @@ router.put('/profile', protect, async (req, res) => {
 // PUT /api/auth/password — Change password
 router.put('/password', protect, async (req, res) => {
   try {
+    if (!isMongoReady()) {
+      return res.status(503).json({
+        error: 'Authentication service unavailable',
+        detail: 'Database connection is not ready yet',
+      });
+    }
+
     const { currentPassword, newPassword } = req.body;
 
     if (!currentPassword || !newPassword) {

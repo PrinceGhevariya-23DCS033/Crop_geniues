@@ -1,12 +1,14 @@
-import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useMemo, useState } from 'react'
 import { User, Bell, Globe, Moon, Sun, Shield, LogOut, Save, ChevronRight, Lock, X } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useTheme } from '@/context/ThemeContext'
 import { useAuth } from '@/context/AuthContext'
 import { useNavigate } from 'react-router-dom'
-import { FormInput, SectionHeader } from '@/components/ui/FormComponents'
+import { FormInput, FormSelect, SectionHeader } from '@/components/ui/FormComponents'
 import clsx from 'clsx'
+import { cropsList } from '@/utils/dummyData'
+import { STATE_NAMES, getDistricts } from '@/data/districts'
 
 const LANGUAGES = ['English', 'Hindi', 'Marathi', 'Gujarati', 'Tamil', 'Telugu', 'Kannada', 'Bengali']
 
@@ -50,6 +52,10 @@ export default function Settings() {
     email: user?.email || '',
     phone: user?.phone || '',
     location: user?.location || '',
+    crop: user?.crop || '',
+    sowingDate: user?.sowingDate || '',
+    state: user?.state || '',
+    district: user?.district || '',
   })
   const [notifications, setNotifications] = useState(user?.notifications || { price: true, disease: true, recommendation: false, weather: true })
   const [language, setLanguage] = useState(user?.language || 'English')
@@ -58,6 +64,22 @@ export default function Settings() {
   const [passwordForm, setPasswordForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' })
   const [changingPassword, setChangingPassword] = useState(false)
 
+  const districts = useMemo(() => getDistricts(profile.state), [profile.state])
+
+  useEffect(() => {
+    setProfile(prev => ({
+      ...prev,
+      name: user?.name || prev.name,
+      email: user?.email || prev.email,
+      phone: user?.phone || prev.phone,
+      location: user?.location || prev.location,
+      crop: user?.crop || prev.crop,
+      sowingDate: user?.sowingDate || prev.sowingDate,
+      state: user?.state || prev.state,
+      district: user?.district || prev.district,
+    }))
+  }, [user])
+
   const handleSave = async () => {
     setSaving(true)
     try {
@@ -65,6 +87,10 @@ export default function Settings() {
         name: profile.name,
         phone: profile.phone,
         location: profile.location,
+        crop: profile.crop,
+        sowingDate: profile.sowingDate,
+        state: profile.state,
+        district: profile.district,
         language,
         notifications,
       })
@@ -109,6 +135,13 @@ export default function Settings() {
   }
 
   const set = (k, v) => setProfile(prev => ({ ...prev, [k]: v }))
+  const setProfileField = (k, v) => {
+    setProfile(prev => {
+      const next = { ...prev, [k]: v }
+      if (k === 'state') next.district = ''
+      return next
+    })
+  }
   const setNotif = (k, v) => setNotifications(prev => ({ ...prev, [k]: v }))
 
   return (
@@ -142,6 +175,28 @@ export default function Settings() {
           <FormInput label="Email" id="email" type="email" value={profile.email} onChange={e => set('email', e.target.value)} />
           <FormInput label="Phone" id="phone" value={profile.phone} onChange={e => set('phone', e.target.value)} />
           <FormInput label="Location" id="loc" value={profile.location} onChange={e => set('location', e.target.value)} />
+        </div>
+
+        <div className="mt-6 pt-5 border-t border-emerald-100/30 dark:border-emerald-900/20 space-y-4">
+          <div>
+            <p className="font-display font-semibold text-gray-900 dark:text-white mb-1">Farm Profile</p>
+            <p className="text-sm text-gray-500">Use these values to prefill yield prediction and field planning.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <FormSelect label="Your Crop" id="profile-crop" value={profile.crop} onChange={e => set('crop', e.target.value)}>
+              <option value="">Select a crop</option>
+              {cropsList.map(crop => <option key={crop} value={crop}>{crop}</option>)}
+            </FormSelect>
+            <FormInput label="Date of Sowing" id="sowingDate" type="date" value={profile.sowingDate} onChange={e => set('sowingDate', e.target.value)} />
+            <FormSelect label="State" id="profile-state" value={profile.state} onChange={e => setProfileField('state', e.target.value)}>
+              <option value="">Select state / UT</option>
+              {STATE_NAMES.map(state => <option key={state} value={state}>{state}</option>)}
+            </FormSelect>
+            <FormSelect label="District" id="profile-district" value={profile.district} onChange={e => set('district', e.target.value)}>
+              <option value="">{profile.state ? 'Select district' : 'Select state first'}</option>
+              {districts.map(district => <option key={district.name} value={district.name}>{district.name}</option>)}
+            </FormSelect>
+          </div>
         </div>
       </motion.div>
 
